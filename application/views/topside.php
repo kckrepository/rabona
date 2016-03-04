@@ -10,7 +10,7 @@
 				$username = ($this->session->userdata['logged_in']['agentname']);
 			}
 		} else {
-			header("location: login");
+			header("location: " . $this->config->item('base_url') . "index.php/user_authentication/login");
 		}
 	?>
 <head>
@@ -155,10 +155,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret"><?php echo $username; ?><i class="caret"></i></span></a>
 		              <ul class="dropdown-menu " role="menu">
-		                <li><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
-		                <li><a href="inbox.html"><i class="fa fa-envelope"></i>Videos</a></li>
+		                <li><a href="<?php echo $this->config->item('base_url') . "index.php/user_authentication/dashboard_show"; ?>"><i class="fa fa-user"></i>Profile</a></li>
+		                <li><a href="<?php echo $this->config->item('base_url') . "index.php/list_video_admin/show_list"; ?>"><i class="fa fa-envelope"></i>Videos</a></li>
 		                <li><a href="calendar.html"><i class="fa fa-calendar"></i>Upload video</a></li>
-		                <li><a href="logout"><i class="fa fa-clipboard"></i>Logout</a></li>
+		                <li><a href="<?php echo $this->config->item('base_url') . "index.php/user_authentication/logout"; ?>"><i class="fa fa-clipboard"></i>Logout</a></li>
 		              </ul>
 		            </li>
 					
@@ -174,16 +174,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="nav" id="side-menu">
 				
                     <li>
-                        <a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Profile</span> </a>
+                        <a href="<?php echo $this->config->item('base_url') . "index.php/user_authentication/dashboard_show"; ?>" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Profile</span> </a>
                     </li>
 					<li>
-                        <a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Videos</span> </a>
+                        <a href="<?php echo $this->config->item('base_url') . "index.php/list_video_admin/show_list"; ?>" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Videos</span> </a>
                     </li>
 					<li>
                         <a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Upload video</span> </a>
                     </li>
                     <li>
-                        <a href="logout" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i><span class="nav-label">Logout</span></a>
+                        <a href="<?php echo $this->config->item('base_url') . "index.php/user_authentication/logout"; ?>" class=" hvr-bounce-to-right"><i class="fa fa-sign-in nav_icon"></i><span class="nav-label">Logout</span></a>
                     </li>
                 </ul>
             </div>
