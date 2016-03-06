@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="<?php echo(CSS.'animate.css'); ?>">
 		<link rel="stylesheet" href="<?php echo(CSS.'owl.carousel.css'); ?>">
 		<link rel="stylesheet" href="<?php echo(CSS.'owl.theme.css'); ?>">
-		<link rel="stylesheet" href="<?php echo(CSS.'style.css'); ?>">
+		<link rel="stylesheet" href="<?php echo(CSS.'style.css'); ?>">		
 		
         <!-- scripts -->		
         <script type="text/javascript" src="<?php echo(JS.'modernizr.custom.97074.js'); ?>"></script>
@@ -51,7 +51,8 @@
                             </a>
                         </div>
                         <!-- navbar logo -->
-
+						
+						
                     </div><!-- /.navbar-header -->
 
                     <!-- nav links -->
@@ -103,10 +104,28 @@
             <header id="header" class="header-wrapper home-parallax home-fade">
                 <div class="header-overlay"></div>
                 <div class="header-wrapper-inner">
-                    <div class="container">
-
+      
+					<div class="container">
+						
+						
                         <div class="welcome-speech">
-                            <h1>Welcome to Rabona</h1>
+						
+							<div align="center">
+								<div>
+									<?php 
+									$attributes = array('method' => 'get');
+									echo form_open('search/process', $attributes); ?>
+										<table width="50%">
+										<tr>
+										<td><input name="input-search" id="input-search" type="text" placeholder="Search..." required></td>
+										<td><button type="submit">Search</button></td>
+										</tr>
+										</table>
+									<?php echo form_close(); ?>
+								</div>
+							</div>
+						
+							<h1>Welcome to Rabona</h1>
                             <p>Find your Player and your Agent</p>
                             <!--<a href="#" class="btn btn-white">
                                 Our Works
@@ -563,7 +582,6 @@
  
             });
         </script>
-
 
     </body>
 </html>

@@ -57,16 +57,16 @@
 					
 					<div style="float: left; width: 60%;">
 							<div align="center">
-							<?php 
+							<?php
 								$attributes = array('method' => 'get');
 								echo form_open('search/process', $attributes); ?>
 										<table width="80%">
 										<tr>
-										<td><input name="input-search" id="input-search" type="text" placeholder="Search..." required></td>
+										<td><input name="input-search" value="<?php echo $search_keyword; ?>" id="input-search" type="text" placeholder="Search..." required></td>
 										<td><button type="submit">Search</button></td>
 										</tr>
 										</table>
-							<?php echo form_close(); ?>
+									<?php echo form_close(); ?>
 							</div>
 					</div>
 					
@@ -117,6 +117,7 @@
 
 
             <!-- header start -->
+			<!--
             <header id="header" class="header-wrapper home-parallax home-fade">
                 <div class="header-overlay"></div>
                 <div class="header-wrapper-inner">
@@ -131,15 +132,15 @@
                             </a>-->
 						<!--<iframe id="ytplayer" type="text/html" width="640" height="390"
   src="http://www.youtube.com/embed/<?php //echo $video_yt_id; ?>?autoplay=1&origin=http://example.com"
-  frameborder="0"/>-->
+  frameborder="0"/>--><!--
 						<div id="ytplayer"></div>
 							
                         <!--</div><!-- /.intro -->
-                        
+                    <!--    
                     </div><!-- /.container -->
-
+<!--
                 </div><!-- /.header-wrapper-inner -->
-            </header>
+<!--            </header>
             <!-- /#header -->
 
             <div class="main-content">
@@ -151,7 +152,7 @@
                         <div class="headline text-center">
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <h2 class="section-title"><?php echo $user_name; ?>'s videos</h2>
+                                    <h2 class="section-title">Search results</h2>
                                     <!--<p class="section-sub-title">
                                         absolutely stunning design &amp; functionality
                                     </p>--> <!-- /.section-sub-title -->
@@ -162,7 +163,7 @@
                         <div class="portfolio-item-list">
                             <div class="row">
 
-                                <!-- LOOP Search Results-->
+								<!-- LOOP Search Results-->
 								<?php 
 									$count = 0;
 									foreach($result_per_page as $row) {		
@@ -181,10 +182,10 @@
                                             <div class="row">
                                                 <div class="col-xs-6">
                                                     <span class="item-name">
-                                                        <?php //echo $row->user_name; ?>
+                                                        <?php echo $row->user_name; ?>
                                                     </span>
                                                     <span>
-                                                        <?php //echo $row->contract_until; ?>
+                                                        <?php echo $row->contract_until; ?>
                                                     </span>
                                                 </div>
                                                 <div class="col-xs-6">
@@ -196,15 +197,17 @@
                                             </div>
                                         </div> <!-- end of /.item-description -->
                                     </div> <!-- end of /.portfolio-item -->
-                                </div>
+                                </div>									
+									
 								<?php 
 										$count++;
 									}
 								?>
-
                             </div>
+							
+							<?php echo $this->pagination->create_links(); ?>
                         </div> <!-- end of portfolio-item-list -->
-                        <?php echo $this->pagination->create_links(); ?>    
+                            
                     </div>
                 </section> 
                 <!--   end of portfolio section  -->
