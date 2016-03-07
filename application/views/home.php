@@ -140,17 +140,14 @@
 
             <div class="main-content">
 
-
-
-
-                <!--  begin portfolio section  -->
+				<!--  begin portfolio section  -->
                 <section class="bg-light-gray">
                     <div class="container">
 
                         <div class="headline text-center">
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <h2 class="section-title">Most wanted video</h2>
+                                    <h2 class="section-title">Most wanted videos</h2>
                                     <!--<p class="section-sub-title">
                                         absolutely stunning design &amp; functionality
                                     </p>--> <!-- /.section-sub-title -->
@@ -161,11 +158,17 @@
                         <div class="portfolio-item-list">
                             <div class="row">
 
-                                <div class="col-md-4 col-sm-6">
+                                <!-- LOOP Search Results-->
+								<?php 
+									$count = 0;
+									foreach($result_per_page as $row) {		
+								?>
+									<div class="col-md-4 col-sm-6">
                                     <div class="portfolio-item">
                                         <div class="item-image">
                                             <a href="#">
-                                                <img src="<?php echo(IMG.'portfolio1.jpg'); ?>" class="img-responsive center-block" alt="portfolio1">
+												<a href="<?php echo $this->config->item('base_url') . "index.php/watch/show_video?video_yt_id=" . $row->video_link; ?>"><img src="http://img.youtube.com/vi/<?php echo $row->video_link; ?>/<?php echo $count; ?>.jpg" alt="Smiley face"></a>
+                                                <!--<img src="<?php echo(IMG.'portfolio1.jpg'); ?>" class="img-responsive center-block" alt="portfolio1">-->
                                                 <div><span><i class="fa fa-plus"></i></span></div>
                                             </a>
                                         </div>
@@ -174,10 +177,10 @@
                                             <div class="row">
                                                 <div class="col-xs-6">
                                                     <span class="item-name">
-                                                        Oliver a Note
+                                                        <?php //echo $row->user_name; ?>
                                                     </span>
                                                     <span>
-                                                        Fashion
+                                                        <?php //echo $row->contract_until; ?>
                                                     </span>
                                                 </div>
                                                 <div class="col-xs-6">
@@ -190,165 +193,17 @@
                                         </div> <!-- end of /.item-description -->
                                     </div> <!-- end of /.portfolio-item -->
                                 </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="<?php echo(IMG.'portfolio2.jpg'); ?>" class="img-responsive center-block" alt="portfolio2">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        Shift Magazine
-                                                    </span>
-                                                    <span>
-                                                        Photography
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="<?php echo(IMG.'portfolio3.jpg'); ?>" class="img-responsive center-block" alt="portfolio3">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        Camp Pine Tree
-                                                    </span>
-                                                    <span>
-                                                        Web Design
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="<?php echo(IMG.'portfolio4.jpg'); ?>" class="img-responsive center-block" alt="portfolio4">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        Free Art App Design
-                                                    </span>
-                                                    <span>
-                                                        Photography
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="<?php echo(IMG.'portfolio5.jpg'); ?>" class="img-responsive center-block" alt="portfolio5">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        Large Poster Set
-                                                    </span>
-                                                    <span>
-                                                        Marketing
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="<?php echo(IMG.'portfolio6.jpg'); ?>" class="img-responsive center-block" alt="portfolio6">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        Skilet Album Cover
-                                                    </span>
-                                                    <span>
-                                                        Business
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item --> 
-                                </div>
+								<?php 
+										$count++;
+									}
+								?>
 
                             </div>
                         </div> <!-- end of portfolio-item-list -->
-                            
+                        <?php echo $this->pagination->create_links(); ?>    
                     </div>
                 </section> 
                 <!--   end of portfolio section  -->
-
 
                 <!-- begin twitter-feed section -->
                 <section class="twit-feed">
