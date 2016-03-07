@@ -207,6 +207,29 @@ Class User_Authentication extends CI_Controller {
 		}
 		$this->session->sess_destroy();
 		$data['message_display'] = 'Successfully Logout';
+		
+		/* start: paging most wanted video */
+		$qry = "Select * FROM m_video order by video_id asc";
+
+		$limit = 10;
+		$offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3):0);
+
+		$config['base_url'] = $this->config->item('base_url') . "index.php/user_authentication/index";
+		$config['total_rows'] = $this->db->query($qry)->num_rows();
+		$config['uri_segment'] = 3;
+		$config['per_page'] = $limit;
+		$config['num_links'] = 20;
+		$config['full_tag_open'] = '<div id="pagination">';
+		$config['full_tag_close'] = '</div>';
+
+		$this->pagination->initialize($config);
+
+		$qry .= " limit {$limit} offset {$offset} ";
+
+		$data['result_per_page'] = $this->db->query($qry)->result();
+		
+		/* end: paging most wanted video */
+		
 		$this->load->view('home', $data);
 	
 	}
