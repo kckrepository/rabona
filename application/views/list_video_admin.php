@@ -20,7 +20,35 @@
 <div class="blank">
 
 	<div class="blank-page">
-		<?php 
+		<?php
+		if (isset($list_users)) {
+			$count = 0;
+		?>
+			<form id="formplayers" method="get">
+			<select name="player" id="players">
+				<option value="NULL">Choose player</option>
+		<?php
+			foreach($list_users as $row) {
+		?>
+					<option value="<?php echo $row->user_id; ?>" <?php if (isset($player_id) && $player_id == $row->user_id) { ?> selected <?php } ?> ><?php echo $row->user_name; ?></option>
+		<?php
+				$count++;
+			}
+		?>
+			</select>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$("#players").change(function() {
+						$('#formplayers').submit();
+					});
+				});
+			</script>
+			</form>
+		<?php
+		}
+		?>
+		<?php
+		if (isset($result_per_page)) {	
 			$count = 0;
 			foreach($result_per_page as $row) {		
 		?>
@@ -35,6 +63,7 @@
 			}
 
 			echo $this->pagination->create_links();
+		}
 		?>
 	</div>
 

@@ -27,7 +27,7 @@ Class Search extends CI_Controller {
 		$limit = 10;
 		$offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3):0);
 
-		$config['base_url'] = $this->config->item('base_url') . "index.php/search/process";
+		$config['base_url'] = $this->config->item('base_url') . "index.php/search/process?input-search=" . $search_keyword;
 		$config['total_rows'] = $this->db->query($qry)->num_rows();
 		$config['uri_segment'] = 3;
 		$config['per_page'] = $limit;
